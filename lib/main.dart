@@ -101,80 +101,94 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
       body: Column(
         children: <Widget>[
           Container(
-            alignment: Alignment.centerRight,
-            padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
-            child: Text(
-              equation,
-              style: TextStyle(fontSize: equationFontSize),
+            height: MediaQuery.of(context).size.height * 0.27,
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.centerRight,
+                padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                child: Text(
+                  equation,
+                  style: TextStyle(fontSize: equationFontSize),
+                ),
+              ),
             ),
           ),
           Container(
-            alignment: Alignment.centerRight,
-            padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
-            child: Text(
-              result,
-              style: TextStyle(fontSize: resultFontSize),
+            height: MediaQuery.of(context).size.height * 0.11,
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.centerRight,
+                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: Text(
+                  result,
+                  style: TextStyle(fontSize: resultFontSize),
+                ),
+              ),
             ),
           ),
           Expanded(
             child: Divider(),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width * .75,
-                child: Table(
-                  children: [
-                    TableRow(children: [
-                      buildButton("C", 1, Colors.redAccent),
-                      buildButton("⌫", 1, Colors.blue),
-                      buildButton("÷", 1, Colors.blue),
-                    ]),
-                    TableRow(children: [
-                      buildButton("7", 1, Colors.black54),
-                      buildButton("8", 1, Colors.black54),
-                      buildButton("9", 1, Colors.black54),
-                    ]),
-                    TableRow(children: [
-                      buildButton("4", 1, Colors.black54),
-                      buildButton("5", 1, Colors.black54),
-                      buildButton("6", 1, Colors.black54),
-                    ]),
-                    TableRow(children: [
-                      buildButton("1", 1, Colors.black54),
-                      buildButton("2", 1, Colors.black54),
-                      buildButton("3", 1, Colors.black54),
-                    ]),
-                    TableRow(children: [
-                      buildButton(".", 1, Colors.black54),
-                      buildButton("0", 1, Colors.black54),
-                      buildButton("00", 1, Colors.black54),
-                    ]),
-                  ],
+          Container(
+            padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: MediaQuery.of(context).size.width * .75,
+                  child: Table(
+                    children: [
+                      TableRow(children: [
+                        buildButton("C", 1, Colors.redAccent),
+                        buildButton("⌫", 1, Colors.blue),
+                        buildButton("÷", 1, Colors.blue),
+                      ]),
+                      TableRow(children: [
+                        buildButton("7", 1, Colors.black54),
+                        buildButton("8", 1, Colors.black54),
+                        buildButton("9", 1, Colors.black54),
+                      ]),
+                      TableRow(children: [
+                        buildButton("4", 1, Colors.black54),
+                        buildButton("5", 1, Colors.black54),
+                        buildButton("6", 1, Colors.black54),
+                      ]),
+                      TableRow(children: [
+                        buildButton("1", 1, Colors.black54),
+                        buildButton("2", 1, Colors.black54),
+                        buildButton("3", 1, Colors.black54),
+                      ]),
+                      TableRow(children: [
+                        buildButton(".", 1, Colors.black54),
+                        buildButton("0", 1, Colors.black54),
+                        buildButton("00", 1, Colors.black54),
+                      ]),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.25,
-                child: Table(
-                  children: [
-                    TableRow(children: [
-                      buildButton("×", 1, Colors.blue),
-                    ]),
-                    TableRow(children: [
-                      buildButton("-", 1, Colors.blue),
-                    ]),
-                    TableRow(children: [
-                      buildButton("+", 1, Colors.blue),
-                    ]),
-                    TableRow(children: [
-                      buildButton("=", 2, Colors.redAccent),
-                    ]),
-                  ],
-                ),
-              )
-            ],
-          ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  child: Table(
+                    children: [
+                      TableRow(children: [
+                        buildButton("×", 1, Colors.blue),
+                      ]),
+                      TableRow(children: [
+                        buildButton("-", 1, Colors.blue),
+                      ]),
+                      TableRow(children: [
+                        buildButton("+", 1, Colors.blue),
+                      ]),
+                      TableRow(children: [
+                        buildButton("=", 2, Colors.redAccent),
+                      ]),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+          
         ],
       ),
     );
